@@ -1,0 +1,2 @@
+P.S. Whenever you are getting the values from the user, you should sanitize the input by using mysql_real_escape_string.
+ie., instead of directly using $_POST , use mysql_real_escape_string($_POST['name']) This will prevent sql injections

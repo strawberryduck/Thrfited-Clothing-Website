@@ -2,54 +2,54 @@
 <html>    
 <head>    
     <title>Registration</title>    
-    <link rel="stylesheet" type="text/css" href="registration1.css">    
+    <link rel="stylesheet" type="text/css" href="registration.css">    
 </head>    
 <body>    
     <h2>REGISTRATION</h2><br>    
     <div class="Registration">    
-    <form id="Registration" method="get" action="register.php">    
-        <label><b>First Name  
-        </b>    
+    <form id="Registration" method="post" action="registration.php">    
+        <label>
+            <b>First Name</b>    
         </label>
         <br>   
         <input type="text" name="FName" id="FName" placeholder="First Name" maxlength="20">    
         <br><br>
 
-        <label><b>Last Name  
-        </b>    
+        <label>
+            <b>Last Name </b>    
         </label>
         <br>
         <input type="text" name="LName" id="LName" placeholder="Last Name" maxlength="20">    
         <br><br>  
 
-        <label><b>Email
-        </b>    
+        <label>
+            <b>Email</b>    
         </label>
         <br>  
         <input type="text" name="email" id="email" placeholder="Email" maxlength="50">    
         <br><br> 
 
-        <label><b>Password     
-        </b>    
+        <label>
+            <b>Password</b>    
         </label> 
         <br>
-        <input type="Password" name="Pass" id="Pass" placeholder="Password" maxlength="32">    
+        <input type="Password" name="password" id="password" placeholder="Password" maxlength="32">    
         <br><br>
 
-        <label><b>Gender 
-        </b>    
+        <label>
+            <b>Gender</b>    
         </label>
         <br>
-        <input type="radio" id="male" name="gender" value="Male">
+        <input type="radio" name="gender" id="male" value="Male">
         <label for="male">Male</label> 
-        <input type="radio" id="female" name="gender" value="Female">
+        <input type="radio" name="gender" id="female" value="Female">
         <label for="female">Female</label>
-        <input type="radio" id="other" name="gender" value="Other"> 
+        <input type="radio" name="gender" id="other" value="Other"> 
         <label for="other">Other</label>    
         <br><br>
 
-        <label><b>Contact Number
-        </b>    
+        <label>
+            <b>Contact Number</b>    
         </label>
         <br>
         <input type="number" name="C_no" id="C_no" placeholder="919876543210" maxlength="12">    
