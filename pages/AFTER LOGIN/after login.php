@@ -1,3 +1,7 @@
+<?php
+//include auth_session.php file on all user panel pages
+include("../../php/session_start.php");
+?>
 <html>
     <title>Thrifted</title>
     <head>
@@ -10,11 +14,13 @@
 
             <div>
                 <ul id="navbar">
-                    <li><a href="after login.html">Home</a></li>
+                <li><p>Hey, <?php echo $_SESSION['first_name']; ?>!</p></li>
+                    <li><a href="after login.php">Home</a></li>
                     <li><a href="items/products.html">Products</a></li>
                     <li><a href="./manage products/manage.html">Manage Items</a></li>
                     <li><a href="../about/about.html">About</a></li>
                     <li><a href="cart/cart.html">Cart</a></li>
+                    <li><a href="../../php/logout.php">Log Out</a></li>
                 </ul>
             </div>
         </section>
