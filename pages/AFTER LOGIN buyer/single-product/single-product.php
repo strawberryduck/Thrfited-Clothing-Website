@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
 //include auth_session.php file on all user panel pages
-include("../../php/session_start.php");
+include("../../../php/session_start.php");
 ?>
 <html>
     <title>PRODUCT NAME</title>

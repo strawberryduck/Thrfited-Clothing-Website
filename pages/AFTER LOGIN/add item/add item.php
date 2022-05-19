@@ -52,7 +52,7 @@ function preview_image1(event)
             if ($result) {
                 echo "<div class='form'>
                   <h3>Added Item Sucessfully.</h3><br/>
-                  <p class='link'>Click<a href=''>here</a> to go to your items dashboard</p>
+                  <p class='link'>Click<a href='../manage products/manage.php'>here</a> to go to your items dashboard</p>
                   </div>";
                 } 
             else {
