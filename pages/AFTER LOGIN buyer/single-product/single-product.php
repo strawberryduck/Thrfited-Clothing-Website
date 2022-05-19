@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php
+//include auth_session.php file on all user panel pages
+include("../../php/session_start.php");
+?>
 <html>
     <title>PRODUCT NAME</title>
     <head>
@@ -7,15 +11,14 @@
 
     <body>
         <section id="header">
-            <a href="#"><img src="../../../images/logo.jpg" class="logo" alt=""></a>
+            <a href="../../login/after login.php"><img src="../../../images/logo.jpg" class="logo" alt=""></a>
 
             <div>
                 <ul id="navbar">
-                    <li><a href="../after login.php">Home</a></li>
-                    <li><a href="../items/products.html">Products</a></li>
-                    <li><a href="../manage products/manage.html">Manage Items</a></li>
+                    <li><a href="../../login/after login.php">Home</a></li>
+                    <li><a href="../items/products.php">Products</a></li>
                     <li><a href="../../about/about.html">About</a></li>
-                    <li><a href="../cart/cart.html">Cart</a></li>
+                    <li><a href="../cart/cart.php">Cart</a></li>
                     <li><a href="../../../php/logout.php">Log Out</a></li>
                 </ul>
             </div>
@@ -35,9 +38,6 @@
                         <img src="../../../images/jacket1.jpg" width="100%" class="small-img" alt="">
                     </div>
 
-                    <div class="small-img-col">
-                        <img src="../../../images/jacket2.jpg" width="100%" class="small-img" alt="">
-                    </div>
                 </div>
             </div>
 
@@ -63,10 +63,6 @@
 
             smallimg[1].onclick = function(){
                 MainImg.src = smallimg[1].src;
-            }
-
-            smallimg[2].onclick = function(){
-                MainImg.src = smallimg[2].src;
             }
         </script>
     </body>    

@@ -6,9 +6,9 @@
 </head>    
 <body>  
     <?php
-            require '../../php/database_connect.php';
+            require 'database_connect.php';
             session_start();
-            if (isset($_POST['email']) && isset($_POST['password'])){
+            if (isset($_POST['email'])&& isset($_POST['password'])){
                 $email=($_POST['email']);
                 $password=($_POST['password']);
                 $query="SELECT * FROM `users` WHERE email='$email'";
@@ -36,15 +36,11 @@
                     }
                     else {
                         echo "<div class='form'>
-                        <h3>Incorrect Email</h3><br/>
+                        <h3>Incorrect Email/Password.</h3><br/>
                         <p class='link'>Click here to <a href='login.php'>Login</a> again.</p>
                         </div>";
                     }
                 }
-                echo "<div class='form'>
-                        <h3>Incorrect Password</h3><br/>
-                        <p class='link'>Click here to <a href='login.php'>Login</a> again.</p>
-                        </div>";
             }         
     ?>  
     <h2>Login</h2><br>    

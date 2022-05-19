@@ -17,6 +17,7 @@
             $C_no=($_POST['C_no']);
             $street=($_POST['street']);
             $pin=($_POST['pin']);
+            $u_type=($_POST['A_type']);
             $create_datetime = date("Y-m-d H:i:s");
             if (!preg_match("/^[a-zA-Z ]+$/",$first_name)) {
                 $name_error = "Name must contain only alphabets and space";
@@ -30,19 +31,19 @@
             if(strlen($password) < 6) {
                 $password_error = "Password must be minimum of 6 characters";
             }
-            $query="INSERT into `users` (FName, LName , password, email, gender, C_no, street, pin, date_time)
-                VALUES ('$first_name', '$last_name', '$hash', '$email', '$gender', '$C_no', '$street', '$pin', '$create_datetime')";
-            $result   = mysqli_query($conn, $query);
+            $query="INSERT into `users` (FName, LName , password, email, gender, C_no, street, pin, u_type, date_time)
+                VALUES ('$first_name', '$last_name', '$hash', '$email', '$gender', '$C_no', '$street', '$pin', '$u_type', '$create_datetime')";
+            $result = mysqli_query($conn, $query);
             if ($result) {
                 echo "<div class='form'>
                   <h3>You are registered successfully.</h3><br/>
-                  <p class='link'>Click here to <a href='../login/login.php'>Login</a></p>
+                  <p class='link'>Click<a href='../login/login.php'> here</a> to login again</p>
                   </div>";
                 } 
             else {
                 echo "<div class='form'>
                   <h3>Required fields are missing.</h3><br/>
-                  <p class='link'>Click here to <a href='registration.php'>registration</a> again.</p>
+                  <p class='link'>Click<a href='registration.php'> here</a> to register again.</p>
                   </div>";
                 }
             }  
@@ -113,6 +114,16 @@
         <label><b>PIN Code</b></label>
         <input type="number" name="pin" id="pin" placeholder="793001" maxlength="6">    
         <br><br>  
+
+        <label>
+            <b>Account Type</b>    
+        </label>
+        <br>
+        <input type="radio" name="A_type" id="Buyer" value="Buyer">
+        <label for="Buyer">Buyer</label> 
+        <input type="radio" name="A_type" id="Seller" value="Seller">
+        <label for="Seller">Buyer + Seller</label>    
+        <br><br>
 
         <div id="createbuttondiv">   
             <input type="submit" name="create" id="create" value="Create">       

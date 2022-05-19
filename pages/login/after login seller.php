@@ -10,15 +10,16 @@ include("../../php/session_start.php");
 
     <body>
         <section id="header">
-            <a href="after login.php"><img src="../../images/logo.jpg" class="logo" alt=""></a>
+            <a href="after login seller.php"><img src="../../images/logo.jpg" class="logo" alt=""></a>
 
             <div>
                 <ul id="navbar">
                 <li><p>Hey, <?php echo $_SESSION['FName']; ?>!</p></li>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="../AFTER LOGIN buyer/items/products.php">Products</a></li>
+                    <li><a href="after login seller.php">Home</a></li>
+                    <li><a href="../after login/items/products.php">Products</a></li>
+                    <li><a href="../after login/manage products/manage.php">Manage Items</a></li>
                     <li><a href="../about/about.html">About</a></li>
-                    <li><a href="../AFTER LOGIN buyer/cart/cart.php">Cart</a></li>
+                    <li><a href="../after login/cart/cart.php">Cart</a></li>
                     <li><a href="../../php/logout.php">Log Out</a></li>
                 </ul>
             </div>

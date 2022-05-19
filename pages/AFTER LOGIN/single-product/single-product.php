@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php
+//include auth_session.php file on all user panel pages
+include("../../../php/session_start.php");
+?>
 <html>
     <title>PRODUCT NAME</title>
     <head>
@@ -7,15 +11,16 @@
 
     <body>
         <section id="header">
-            <a href="#"><img src="../../images/logo.jpg" class="logo" alt=""></a>
+            <a href="../../login/after login.php"><img src="../../../images/logo.jpg" class="logo" alt=""></a>
 
             <div>
                 <ul id="navbar">
-                    <li><a href="../../index.html">Home</a></li>
-                    <li><a href="../registration/registration.php">Register</a></li>
-                    <li><a href="../login/login.php">Login</a></li>
-                    <li><a href="../items/products.html">Products</a></li>
-                    <li><a href="../about/about.html">About</a></li>
+                    <li><a href="../../login/after login seller.php">Home</a></li>
+                    <li><a href="../items/products.php">Products</a></li>
+                    <li><a href="../manage products/manage.php">Manage Items</a></li>
+                    <li><a href="../../about/about.html">About</a></li>
+                    <li><a href="../cart/cart.php">Cart</a></li>
+                    <li><a href="../../../php/logout.php">Log Out</a></li>
                 </ul>
             </div>
         </section>
@@ -23,15 +28,15 @@
 
         <section id="proddetails" class="section-p1">
             <div class="single-prod-img">
-                <img src="../../images/jacket1.jpg" width="100%" id="MainImg" alt="">
+                <img src="../../../images/jacket1.jpg" width="100%" id="MainImg" alt="">
 
                 <div class="small-img-group">
                     <div class="small-img-col">
-                        <img src="../../images/jacket2.jpg" width="100%" class="small-img" alt="">
+                        <img src="../../../images/jacket2.jpg" width="100%" class="small-img" alt="">
                     </div>
 
                     <div class="small-img-col">
-                        <img src="../../images/jacket1.jpg" width="100%" class="small-img" alt="">
+                        <img src="../../../images/jacket1.jpg" width="100%" class="small-img" alt="">
                     </div>
                 </div>
             </div>

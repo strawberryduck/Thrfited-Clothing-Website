@@ -1,12 +1,39 @@
-<!DOCTYPE html>    
+<!DOCTYPE html>
+<?php
+//include auth_session.php file on all user panel pages
+include("../../../php/session_start.php");
+?>    
 <html>    
 <head>    
     <title>Add Item</title>    
-    <link rel="stylesheet" type="text/css" href="add item.css">    
-</head>    
+    <link rel="stylesheet" type="text/css" href="add item.css">
+    <script type='text/javascript'>
+function preview_image(event) 
+{
+ var reader = new FileReader();
+ reader.onload = function()
+ {
+  var output = document.getElementById('output_image1');
+  output.src = reader.result;
+ }
+ reader.readAsDataURL(event.target.files[0]);
+}
+
+function preview_image1(event) 
+{
+ var reader = new FileReader();
+ reader.onload = function()
+ {
+  var output = document.getElementById('output_image2');
+  output.src = reader.result;
+ }
+ reader.readAsDataURL(event.target.files[0]);
+}
+</script>    
+</head>   
 <body> 
     <?php
-        require '../../php/database_connect.php';
+        require '../../../php/database_connect.php';
         if ($_SERVER['REQUEST_METHOD']=='POST') {
             $Pname=($_POST['Name']);
             $Brand=($_POST['Brand']);
@@ -14,35 +41,24 @@
             $Quality=($_POST['Quality']);
             $Size=($_POST['Size']);
             $Price=($_POST['Price']);
-            $Condition=($_POST['Condition']);
+            $PCondition=($_POST['PCondition']);
             $Category=($_POST['Category']);
-            $image=($_POST['image']);
+            $image1=($_POST['image1']);
+            $image2=($_POST['image2']);
             $create_datetime = date("Y-m-d H:i:s");
-            // if (!preg_match("/^[a-zA-Z ]+$/",$name)) {
-            //     $name_error = "Name must contain only alphabets and space";
-            // }
-            // if (!preg_match("/^[a-zA-Z ]+$/",$Brand)) {
-            //     $name_error = "Name must contain only alphabets and space";
-            // }
-            // if(!filter_var($email,FILTER_VALIDATE_EMAIL)) {
-            //     $email_error = "Please Enter Valid Email ID";
-            // }
-            // if(strlen($password) < 6) {
-            //     $password_error = "Password must be minimum of 6 characters";
-            // }
-            $query="INSERT into `users` (PName, Brand , Fabric, Quality, Size, Price, Condition, Category, image, date_time)
-                VALUES ('$Pname', '$Brand', '$Fabric', '$Quality', '$Size', '$Price', '$Condition', '$Category', '$image' '$create_datetime')";
-            $result   = mysqli_query($conn, $query);
+            $query="INSERT into `items` (PName, Brand, Fabric, Quality, Size, Price, PCondition, Category, image_1, image_2, date_time)
+                VALUES ('$Pname', '$Brand', '$Fabric', '$Quality', '$Size', '$Price', '$PCondition', '$Category', '$image1', '$image2', '$create_datetime')";
+            $result = mysqli_query($conn, $query);
             if ($result) {
                 echo "<div class='form'>
-                  <h3>You are registered successfully.</h3><br/>
-                  <p class='link'>Click here to <a href='./../login/login.php'>Login</a></p>
+                  <h3>Added Item Sucessfully.</h3><br/>
+                  <p class='link'>Click<a href=''>here</a> to go to your items dashboard</p>
                   </div>";
                 } 
             else {
                 echo "<div class='form'>
                   <h3>Required fields are missing.</h3><br/>
-                  <p class='link'>Click here to <a href='registration.php'>registration</a> again.</p>
+                  <p class='link'>Click<a href='add item.php'>here</a> to add item again.</p>
                   </div>";
                 }
             }  
@@ -106,7 +122,7 @@
         <br><br><br>    
 
         <label><b>Condition</b></label>
-        <input type="text" name="Condition" id="Condition" placeholder="Condition" maxlength="100">    
+        <input type="text" name="PCondition" id="Condition" placeholder="Condition" maxlength="100">    
         <br><br> 
 
         <label>
@@ -126,10 +142,20 @@
         <input type="radio" name="Category" id="FJ" value="Female Jacket"> 
         <label for="FJ">Female Jacket</label>    
         <br><br>
-        <label><b>Image ( .png or .jpg)</b></label>
-        <input type="file" name="image" id="image" accept="image/png, image/jpg">
-        <div id="display_image"></div>    
-        <br><br>
+
+        <div id="wrapper1">
+            <label><b>Image 1</b></label>
+            <input type="file" name="image1" accept="image/*" onchange="preview_image(event)">
+            <img id="output_image1">
+            <br>
+        </div>
+
+        <div id="wrapper2">
+            <label><b>Image 2</b></label>
+            <input type="file" name="image2" accept="image/*" onchange="preview_image1(event)">
+            <img id="output_image2">
+            <br><br>
+        </div>
 
         <div id="createbuttondiv">   
             <input type="submit" name="Add" id="Add" value="Add item">       
@@ -137,7 +163,6 @@
         <br><br>      
     </form> 
     
-    <script src="add item.js"></script>
 </div>    
 </body>    
 </html>  
