@@ -30,112 +30,33 @@ include("../../../php/session_start.php");
             <h2>PRODUCTS</h2>
             <p>Summer Collection is all the rage right now!</p>
             <div class="prod-container">
-                <div class="prod">
-                    <img src="../../../images/jacket1.jpg" alt="">
-                    <div class="des">
-                        <span>Adidas</span>
-                        <h5>Biker Jacket Stylish</h5>
-                        <h4>PRICE HERE</h4>
-                    </div>
-                    <a href="#"><p>Add to cart</p></a>
-                </div>
+            <?php 
+                                        $query = " select PName, Brand, Price, image_1 from items ";
+                                        $result = mysqli_query($conn,$query);
+                                    
+                                    while($row=mysqli_fetch_assoc($result))
+                                    {
+                                        $PName = $row['PName'];
+                                        $Brand = $row['Brand'];
+                                        $Price = $row['Price'];
+                                        $image_1 = $row['image_1'];
+                            ?>
 
+            
                 <div class="prod">
-                    <img src="../../../images/jacket1.jpg" alt="">
-                    <div class="des">
-                        <span>Adidas</span>
-                        <h5>Biker Jacket Stylish</h5>
-                        <h4>PRICE HERE</h4>
-                    </div>
+                        <?php echo "$image_1" ?>
+                        <div class="des">
+                            <?php echo "<span>$Brand</span>" ?>
+                            <?php echo "<h5>$PName</h5>" ?>
+                            <?php echo "<h4>$Price</h4>" ?>
+                        </div>
                     <a href="#"><p>Add to cart</p></a>
                 </div>
-
-                <div class="prod">
-                    <img src="../../../images/jacket1.jpg" alt="">
-                    <div class="des">
-                        <span>Adidas</span>
-                        <h5>Biker Jacket Stylish</h5>
-                        <h4>PRICE HERE</h4>
-                    </div>
-                    <a href="#"><p>Add to cart</p></a>
-                </div>
-
-                <div class="prod">
-                    <img src="../../../images/jacket1.jpg" alt="">
-                    <div class="des">
-                        <span>Adidas</span>
-                        <h5>Biker Jacket Stylish</h5>
-                        <h4>PRICE HERE</h4>
-                    </div>
-                    <a href="#"><p>Add to cart</p></a>
-                </div>
-
-                <div class="prod">
-                    <img src="../../../images/jacket1.jpg" alt="">
-                    <div class="des">
-                        <span>Adidas</span>
-                        <h5>Biker Jacket Stylish</h5>
-                        <h4>PRICE HERE</h4>
-                    </div>
-                    <a href="#"><p>Add to cart</p></a>
-                </div>
-
-                <div class="prod">
-                    <img src="../../../images/jacket1.jpg" alt="">
-                    <div class="des">
-                        <span>Adidas</span>
-                        <h5>Biker Jacket Stylish</h5>
-                        <h4>PRICE HERE</h4>
-                    </div>
-                    <a href="#"><p>Add to cart</p></a>
-                </div>
-
-                <div class="prod">
-                    <img src="../../../images/jacket1.jpg" alt="">
-                    <div class="des">
-                        <span>Adidas</span>
-                        <h5>Biker Jacket Stylish</h5>
-                        <h4>PRICE HERE</h4>
-                    </div>
-                    <a href="#"><p>Add to cart</p></a>
-                </div>
-
-                <div class="prod">
-                    <img src="../../../images/jacket1.jpg" alt="">
-                    <div class="des">
-                        <span>Adidas</span>
-                        <h5>Biker Jacket Stylish</h5>
-                        <h4>PRICE HERE</h4>
-                    </div>
-                    <a href="#"><p>Add to cart</p></a>
-                </div>
-
-                <div class="prod">
-                    <img src="../../../images/jacket1.jpg" alt="">
-                    <div class="des">
-                        <span>Adidas</span>
-                        <h5>Biker Jacket Stylish</h5>
-                        <h4>PRICE HERE</h4>
-                    </div>
-                    <a href="#"><p>Add to cart</p></a>
-                </div>
-
-                <div class="prod">
-                    <img src="../../../images/jacket1.jpg" alt="">
-                    <div class="des">
-                        <span>Adidas</span>
-                        <h5>Biker Jacket Stylish</h5>
-                        <h4>PRICE HERE</h4>
-                    </div>
-                    <a href="#"><p>Add to cart</p></a>
-                </div>
+            
+                <?php 
+                                    }  
+                ?> 
             </div>
-        </section>
-
-        <section id="pageno" class="section-p1">
-            <a href="#">1</a>
-            <a href="#">2</a>
-            <a href="#">--></a>
         </section>
     </body>    
         

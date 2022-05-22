@@ -1,0 +1,4 @@
+SELECT product_name, customer.name, date_of_sale  
+FROM sales, product, customer 
+WHERE  product.product_id = sales.product_id 
+AND customer.customer_id >= sales.customer_id

@@ -1,25 +1,26 @@
-<!DOCTYPE html>
 <?php
 //include auth_session.php file on all user panel pages
-include("../../../php/session_start.php");
+include("../../php/database_connect.php");
 ?>
+<!DOCTYPE html>
 <html>
     <title>Products</title>
     <head>
-        <link rel="stylesheet" href="products.css">
+        <link rel="stylesheet" href="./products.css">
+        <link rel="stylesheet" href="../../bootstrap/css/bootstrap.css">
     </head>
 
     <body>
         <section id="header">
-            <a href="../../login/after login.php"><img src="../../../images/logo.jpg" class="logo" alt=""></a>
+            <a href="#"><img src="../../images/logo.jpg" class="logo" alt=""></a>
 
             <div>
                 <ul id="navbar">
-                    <li><a href="../../login/after login.php">Home</a></li>
-                    <li><a href="products.php">Products</a></li>
-                    <li><a href="../../about/about.html">About</a></li>
-                    <li><a href="../cart/cart.php">Cart</a></li>
-                    <li><a href="../../../php/logout.php">Log Out</a></li>
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="../registration/registration.php">Register</a></li>
+                    <li><a href="../login/login.php">Login</a></li>
+                    <li><a href="../items/products.html">Products</a></li>
+                    <li><a href="../about/about.html">About</a></li>
                 </ul>
             </div>
         </section>
@@ -30,7 +31,7 @@ include("../../../php/session_start.php");
             <p>Summer Collection is all the rage right now!</p>
             <div class="prod-container">
             <?php 
-                                       include("../../../php/database_connect.php"); 
+                                        include("../../../php/database_connect.php"); 
                                         $query = " select PName, Brand, Price, image_1 from items ";
                                         $result = mysqli_query($conn,$query);
                                     

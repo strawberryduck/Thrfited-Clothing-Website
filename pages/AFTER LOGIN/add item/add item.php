@@ -6,7 +6,7 @@ include("../../../php/session_start.php");
 <html>    
 <head>    
     <title>Add Item</title>    
-    <link rel="stylesheet" type="text/css" href="add item.css">
+    <link rel="stylesheet" type="text/css" href="./add item.css">
     <script type='text/javascript'>
 function preview_image(event) 
 {
@@ -46,6 +46,7 @@ function preview_image1(event)
             $image1=($_POST['image1']);
             $image2=($_POST['image2']);
             $create_datetime = date("Y-m-d H:i:s");
+            
             $query="INSERT into `items` (PName, Brand, Fabric, Quality, Size, Price, PCondition, Category, image_1, image_2, date_time)
                 VALUES ('$Pname', '$Brand', '$Fabric', '$Quality', '$Size', '$Price', '$PCondition', '$Category', '$image1', '$image2', '$create_datetime')";
             $result = mysqli_query($conn, $query);
