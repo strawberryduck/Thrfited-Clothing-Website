@@ -2,6 +2,7 @@
 <?php
 //include auth_session.php file on all user panel pages
 include("../../../php/session_start.php");
+include("../../../php/database_connect.php");
 $p_id=$_GET["p_id"];
     // $u_id=$_GET["u_id"];
     $query="SELECT * FROM `items` WHERE p_id='$p_id'";
