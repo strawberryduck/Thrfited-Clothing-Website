@@ -2,6 +2,20 @@
 <?php
 //include auth_session.php file on all user panel pages
 include("../../../php/session_start.php");
+$p_id=$_GET["p_id"];
+    // $u_id=$_GET["u_id"];
+    $query="SELECT * FROM `items` WHERE p_id='$p_id'";
+    $result = mysqli_query($conn,$query);
+    $row = mysqli_fetch_assoc($result);
+    $PName = $row['PName'];
+    $Brand = $row['Brand'];
+    $Fabric = $row['Fabric'];
+    $Quality = $row['Quality'];
+    $Size = $row['Size'];
+    $Price = $row['Price'];
+    $PCondition = $row['PCondition'];
+    $image_1 = $row['image_1'];
+    $image_2 = $row['image_2'];
 ?>
 <html>
     <title>PRODUCT NAME</title>
@@ -43,13 +57,19 @@ include("../../../php/session_start.php");
 
             <div class="single-prod-details">
                 <!-- <h2>Home / Jacket</h2> -->
-                <h3>Jacket</h3>
-                <h3>PRICE here</h3>
-                <button>Add to Cart</button>
-                <h2>Product Details</h2>
-                <span>TEXT DETAILS LOREM IPSUM TEXT DETAILS LOREM IPSUM TEXT DETAILS LOREM IPSUM TEXT DETAILS LOREM IPSUM
-                    TEXT DETAILS LOREM IPSUM TEXT DETAILS LOREM IPSUM TEXT DETAILS LOREM IPSUM TEXT DETAILS LOREM IPSUM
-                </span>
+                <h3><?php echo $PName ?></h3>
+                <h3>Rs. <?php echo $Price ?></h3>
+                <h2>Product Details:</h2>
+                <!-- <span> -->
+                <!-- </span> -->
+                <h3>Brand:</h3><p><?php echo $Brand ?></p>
+                <h3>Fabric:</h3><p><?php echo $Fabric ?></p>
+                <h3>Quality:</h3><p><?php echo $Quality ?></p>
+                <h3>Size:</h3><p><?php echo $Size ?></p>
+                <h3>Condition:</h3><p><?php echo $PCondition ?></p>
+                <br>
+                <br>
+                <button>Add To Cart</button>
             </div>
         </section>
         

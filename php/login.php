@@ -9,8 +9,19 @@
             require 'database_connect.php';
             session_start();
             if (isset($_POST['email'])&& isset($_POST['password'])){
+                $email="";
                 $email=($_POST['email']);
+                
+                if ($email=""){  
+                    echo "Please Enter Email Address";
+                    header("Location:login.php");
+                }
+                $password="";
                 $password=($_POST['password']);
+                if ($email=""){  
+                    echo "Please Enter Password";
+                    header("Location:login.php");
+                } else{
                 $query="SELECT * FROM `users` WHERE email='$email'";
                 $result = mysqli_query($conn, $query) or die(mysqli_error($conn));
                 $row = mysqli_fetch_assoc($result);
@@ -21,6 +32,7 @@
                         echo "Logged in!";
                         $_SESSION['email'] = $row['email'];
                         $_SESSION['FName'] = $row['FName'];
+                        $_SESSION['u_id'] = $row['u_id'];
                         //if buyer or seller
                         // test
                         $type['u_type'] = $row['row'];
@@ -41,7 +53,8 @@
                         </div>";
                     }
                 }
-            }         
+            }
+         }         
     ?>  
     <h2>Login</h2><br>    
     <div class="login">    
@@ -50,12 +63,12 @@
         </b>    
         </label>
         <br>    
-        <input type="text" name="email" id="email" placeholder="Email">    
+        <input type="email" name="email" id="email" placeholder="Email" autofocus required >    
         <br><br>    
         <label><b>Password     
         </b>    
         </label>    
-        <input type="Password" name="password" id="password" placeholder="Password">    
+        <input type="Password" name="password" id="password" placeholder="Password" required>    
         <br><br> 
         <div id="signinbuttondiv">   
             <input type="submit" name="log" id="log" value="Sign in">       

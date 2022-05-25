@@ -21,6 +21,7 @@
                         echo "Logged in!";
                         $_SESSION['email'] = $row['email'];
                         $_SESSION['FName'] = $row['FName'];
+                        $_SESSION['u_id'] = $row['u_id'];
                         //if buyer or seller
                         // test
                         $type['u_type'] = $row['row'];

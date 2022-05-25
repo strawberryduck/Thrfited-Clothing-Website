@@ -5,8 +5,8 @@ include("../../../php/session_start.php");
 ?>    
 <html>    
 <head>    
-    <title>Add Item</title>    
-    <link rel="stylesheet" type="text/css" href="./add item.css">
+    <title>Edit Item</title>    
+    <link rel="stylesheet" type="text/css" href="./edit item.css">
     <script type='text/javascript'>
 function preview_image(event) 
 {
@@ -35,6 +35,7 @@ function preview_image1(event)
     <?php
         require '../../../php/database_connect.php';
         if ($_SERVER['REQUEST_METHOD']=='POST') {
+            $p_id = $_GET['p_id'];
             $u_id = $_SESSION['u_id'];
             $Pname=($_POST['Name']);
             $Brand=($_POST['Brand']);
@@ -44,48 +45,30 @@ function preview_image1(event)
             $Price=($_POST['Price']);
             $PCondition=($_POST['PCondition']);
             $Category=($_POST['Category']);
-            // $image1=($_POST['image1']);
-            // $image2=($_POST['image2']);
-            
-            $file_name=$_FILES['image1'];
-                $file_name=$_FILES['image1']['name'];
-                $file_type=$_FILES['image1']['type'];
-                $temp_name=$_FILES['image1']['tmp_name'];$file_size=$_FILES['image1']['size'];
-      
-                $file_destination= "uploads/".$file_name;
-
-            $file_name1=$_FILES['image2'];
-                    $file_name1=$_FILES['image2']['name'];
-                $file_type1=$_FILES['image2']['type'];
-                $temp_name1=$_FILES['image2']['tmp_name'];$file_size=$_FILES['image2']['size'];
-            
-                $file_destination1= "uploads/".$file_name1;
-
+            $image1=($_POST['image1']);
+            $image2=($_POST['image2']);
             $create_datetime = date("Y-m-d H:i:s");
-
-            if(move_uploaded_file($temp_name,$file_destination) && move_uploaded_file($temp_name1,$file_destination1)){
-            $query="INSERT into `items` (u_id, PName, Brand, Fabric, Quality, Size, Price, PCondition, Category, image_1, image_2, date_time)
-                VALUES ('$u_id', '$Pname', '$Brand', '$Fabric', '$Quality', '$Size', '$Price', '$PCondition', '$Category', '$file_name', '$file_name1', '$create_datetime')";
+            
+            $query="UPDATE `items` SET u_id = '$u_id', PName = '$Pname', Brand = '$Brand', Fabric = '$Fabric', Quality = '$Quality', Size = '$Size', Price = '$Price', PCondition = '$PCondition', Category = '$Category', image_1 = '$image1', image_2 = '$image2', date_time = '$create_datetime'
+                   WHERE p_id = '$p_id'";
             $result = mysqli_query($conn, $query);
             if ($result) {
                 echo "<div class='form'>
-                  <h3>Added Item Sucessfully.</h3><br/>
+                  <h3>Updated Item Sucessfully.</h3><br/>
                   <p class='link'>Click<a href='../manage products/manage.php'>here</a> to go to your items dashboard</p>
                   </div>";
                 } 
             else {
                 echo "<div class='form'>
                   <h3>Required fields are missing.</h3><br/>
-                  <p class='link'>Click<a href='add item.php'>here</a> to add item again.</p>
+                  <p class='link'>Click<a href='../manage products/manage.php'>here</a> to go back to items dashboard and retry.</p>
                   </div>";
                 }
-            }
-            echo ""; 
-        } 
+            }  
         ?>    
-    <h2>Add Item</h2><br>    
-    <div class="AddItem">    
-    <form id="Add Item" method="post" enctype="multipart/form-data">    
+    <h2>Edit Item</h2><br>    
+    <div class="EditItem">    
+    <form id="Edit Item" method="post">    
         <label>
             <b>Name of Product</b>    
         </label>
@@ -177,8 +160,8 @@ function preview_image1(event)
             <br><br>
         </div>
 
-        <div id="createbuttondiv">   
-            <input type="submit" name="Add" id="Add" value="Add item">       
+        <div id="editbuttondiv">   
+            <input type="submit" name="Edit" id="Edit" value="Update item">       
         </div>      
         <br><br>      
     </form> 

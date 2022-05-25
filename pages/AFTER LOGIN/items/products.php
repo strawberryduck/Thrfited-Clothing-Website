@@ -30,32 +30,28 @@ include("../../../php/session_start.php");
             <h2>PRODUCTS</h2>
             <p>Summer Collection is all the rage right now!</p>
             <div class="prod-container">
-            <?php 
-                                        $query = " select PName, Brand, Price, image_1 from items ";
-                                        $result = mysqli_query($conn,$query);
-                                    
-                                    while($row=mysqli_fetch_assoc($result))
-                                    {
-                                        $PName = $row['PName'];
-                                        $Brand = $row['Brand'];
-                                        $Price = $row['Price'];
-                                        $image_1 = $row['image_1'];
-                            ?>
-
-            
-                <div class="prod">
-                        <?php echo "$image_1" ?>
-                        <div class="des">
-                            <?php echo "<span>$Brand</span>" ?>
-                            <?php echo "<h5>$PName</h5>" ?>
-                            <?php echo "<h4>$Price</h4>" ?>
-                        </div>
-                    <a href="#"><p>Add to cart</p></a>
-                </div>
-            
                 <?php 
-                                    }  
-                ?> 
+                    include("../../../php/database_connect.php");
+                    // include("../../php/login.php");
+                    $query = " select p_id, PName, Brand, Price, image_1 from items ";
+                    $result = mysqli_query($conn,$query);
+                     
+                    $items = mysqli_fetch_all($result, MYSQLI_ASSOC);
+                    foreach($items as $item){
+                ?>
+                <div class='prod'>
+                <img source src="<?php echo '../add item/uploads/' .$item['image_1'];?>">
+                        <div class='des'>
+                            <span><?php echo $item['Brand'] ?></span>
+                            <h5><?php echo  $item['PName'] ?></h5>
+                            <h4><?php echo $item['Price'] ?></h4>
+                        </div>
+                        <?php 
+                            echo "<a href='../single-product/single-product.php?p_id=$item[p_id]'>View Item</a>";
+                        ?>
+                        <br>
+                </div>
+                  <?php } ?>
             </div>
         </section>
     </body>    

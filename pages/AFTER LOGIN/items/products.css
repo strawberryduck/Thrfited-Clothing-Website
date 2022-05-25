@@ -71,7 +71,7 @@ p{
 
 #products .prod-container{
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     padding: 10px;
     flex-wrap: wrap;
 }
@@ -86,7 +86,17 @@ p{
     box-shadow: 10px 20px 30px rgba(0, 0, 0, 0.02);
     margin: 15px 0;
     transition: 0.3s ease;
+    margin-right: 10px;
 }
+
+.link {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
 
 #products .prod:hover{
     box-shadow: 10px 20px 30px rgba(0, 0, 0, 0.06);

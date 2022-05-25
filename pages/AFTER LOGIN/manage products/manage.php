@@ -26,130 +26,42 @@ include("../../../php/session_start.php");
         </section>
         <br>
 
-        <section id="products" class="section-p1">
+            <section id="products" class="section-p1">
             <p>Manage your products</p>
             <div class="createbuttondiv">   
                 <h4><a href="../add item/add item.php">Add New Product</a></h4>       
             </div>
             <h2>YOUR PRODUCTS</h2>
             <div class="prod-container">
-                <div class="prod">
-                    <img src="../../../images/jacket1.jpg" alt="">
-                    <div class="des">
-                        <span>Adidas</span>
-                        <h5>Biker Jacket Stylish</h5>
-                        <h4>PRICE HERE</h4>
-                    </div>
-                    <button>Edit Product</button>
-                    <button>Remove Product</button>
+            <?php 
+                    include("../../../php/database_connect.php");
+                    // include("../../php/login.php");
+                    $u_id = $_SESSION['u_id'];
+                    $query = " select p_id, PName, Brand, Price, image_1 from items WHERE u_id = '$u_id' ";
+                    $result = mysqli_query($conn,$query);
+                     
+                    $items = mysqli_fetch_all($result, MYSQLI_ASSOC);
+                    foreach($items as $item){
+                ?>
+                <div class='prod'>
+                <img source src="<?php echo '../add item/uploads/' .$item['image_1'];?>">
+                        <div class='des'>
+                            <span><?php echo $item['Brand'] ?></span>
+                            <h5><?php echo  $item['PName'] ?></h5>
+                            <h4><?php echo $item['Price'] ?></h4>
+                        </div>
+                        <?php 
+                            echo "<a href='../update item/edit item.php?p_id=$item[p_id]'>Edit Item</a>";
+                        ?>
+                        <br>
+                        <?php 
+                            echo "";
+                        ?>
                 </div>
-
-                <div class="prod">
-                    <img src="../../../images/jacket1.jpg" alt="">
-                    <div class="des">
-                        <span>Adidas</span>
-                        <h5>Biker Jacket Stylish</h5>
-                        <h4>PRICE HERE</h4>
-                    </div>
-                    <button>Edit Product</button>
-                    <button>Remove Product</button>
-                </div>
-
-                <div class="prod">
-                    <img src="../../../images/jacket1.jpg" alt="">
-                    <div class="des">
-                        <span>Adidas</span>
-                        <h5>Biker Jacket Stylish</h5>
-                        <h4>PRICE HERE</h4>
-                    </div>
-                    <button>Edit Product</button>
-                    <button>Remove Product</button>
-                </div>
-
-                <div class="prod">
-                    <img src="../../../images/jacket1.jpg" alt="">
-                    <div class="des">
-                        <span>Adidas</span>
-                        <h5>Biker Jacket Stylish</h5>
-                        <h4>PRICE HERE</h4>
-                    </div>
-                    <button>Edit Product</button>
-                    <button>Remove Product</button>
-                </div>
-
-                <div class="prod">
-                    <img src="../../../images/jacket1.jpg" alt="">
-                    <div class="des">
-                        <span>Adidas</span>
-                        <h5>Biker Jacket Stylish</h5>
-                        <h4>PRICE HERE</h4>
-                    </div>
-                    <button>Edit Product</button>
-                    <button>Remove Product</button>
-                </div>
-
-                <div class="prod">
-                    <img src="../../../images/jacket1.jpg" alt="">
-                    <div class="des">
-                        <span>Adidas</span>
-                        <h5>Biker Jacket Stylish</h5>
-                        <h4>PRICE HERE</h4>
-                    </div>
-                    <button>Edit Product</button>
-                    <button>Remove Product</button>
-                </div>
-
-                <div class="prod">
-                    <img src="../../../images/jacket1.jpg" alt="">
-                    <div class="des">
-                        <span>Adidas</span>
-                        <h5>Biker Jacket Stylish</h5>
-                        <h4>PRICE HERE</h4>
-                    </div>
-                    <button>Edit Product</button>
-                    <button>Remove Product</button>
-                </div>
-
-                <div class="prod">
-                    <img src="../../../images/jacket1.jpg" alt="">
-                    <div class="des">
-                        <span>Adidas</span>
-                        <h5>Biker Jacket Stylish</h5>
-                        <h4>PRICE HERE</h4>
-                    </div>
-                    <button>Edit Product</button>
-                    <button>Remove Product</button>
-                </div>
-
-                <div class="prod">
-                    <img src="../../../images/jacket1.jpg" alt="">
-                    <div class="des">
-                        <span>Adidas</span>
-                        <h5>Biker Jacket Stylish</h5>
-                        <h4>PRICE HERE</h4>
-                    </div>
-                    <button>Edit Product</button>
-                    <button>Remove Product</button>
-                </div>
-
-                <div class="prod">
-                    <img src="../../../images/jacket1.jpg" alt="">
-                    <div class="des">
-                        <span>Adidas</span>
-                        <h5>Biker Jacket Stylish</h5>
-                        <h4>PRICE HERE</h4>
-                    </div>
-                    <button>Edit Product</button>
-                    <button>Remove Product</button>
-                </div>
+                  <?php } ?>
             </div>
         </section>
 
-        <section id="pageno" class="section-p1">
-            <a href="#">1</a>
-            <a href="#">2</a>
-            <a href="#">--></a>
-        </section>
     </body>    
         
 </html>

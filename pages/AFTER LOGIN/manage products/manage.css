@@ -93,7 +93,7 @@ p{
 
 #products .prod-container{
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-evenly; */
     padding: 10px;
     flex-wrap: wrap;
 }
@@ -108,6 +108,7 @@ p{
     box-shadow: 10px 20px 30px rgba(0, 0, 0, 0.02);
     margin: 15px 0;
     transition: 0.3s ease;
+    margin-right: 10px;
 }
 
 #products .prod:hover{
@@ -142,17 +143,4 @@ p{
     cursor: pointer;
 }
 
-#pageno{
-    text-align: center;
-
-}
-
-#pageno a{
-    text-decoration: none;
-    background-color: gray;
-    padding: 15px 20px;
-    border-radius:4px;
-    color: aliceblue;
-    font-weight: 600;
-}
 

@@ -57,39 +57,39 @@
             <b>First Name</b>    
         </label>
         <br>   
-        <input type="text" name="FName" id="FName" placeholder="First Name" maxlength="20">    
+        <input type="text" name="FName" id="FName" placeholder="First Name" maxlength="20" required autofocus>    
         <br><br>
 
         <label>
             <b>Last Name </b>    
         </label>
         <br>
-        <input type="text" name="LName" id="LName" placeholder="Last Name" maxlength="20">    
+        <input type="text" name="LName" id="LName" placeholder="Last Name" maxlength="20" required>    
         <br><br>  
 
         <label>
             <b>Email</b>    
         </label>
         <br>  
-        <input type="text" name="email" id="email" placeholder="Email" maxlength="50">    
+        <input type="email" name="email" id="email" placeholder="Email" maxlength="50" required>    
         <br><br> 
 
         <label>
             <b>Password</b>    
         </label> 
         <br>
-        <input type="Password" name="password" id="password" placeholder="Password" maxlength="32">    
+        <input type="Password" name="password" id="password" placeholder="Password" maxlength="32" required>    
         <br><br>
 
         <label>
             <b>Gender</b>    
         </label>
         <br>
-        <input type="radio" name="gender" id="male" value="Male">
+        <input type="radio" name="gender" id="male" value="Male" required>
         <label for="male">Male</label> 
-        <input type="radio" name="gender" id="female" value="Female">
+        <input type="radio" name="gender" id="female" value="Female" required>
         <label for="female">Female</label>
-        <input type="radio" name="gender" id="other" value="Other"> 
+        <input type="radio" name="gender" id="other" value="Other" required> 
         <label for="other">Other</label>    
         <br><br>
 
@@ -97,7 +97,7 @@
             <b>Contact Number</b>    
         </label>
         <br>
-        <input type="number" name="C_no" id="C_no" placeholder="919876543210" maxlength="12">    
+        <input type="number" name="C_no" id="C_no" placeholder="919876543210" maxlength="12" required>    
         <br><br><br>    
 
         <label><b>Address:
@@ -109,20 +109,20 @@
             Street
         </b>
         </label>
-        <textarea name="street" id="street" placeholder="Street" maxlength="256"></textarea>
+        <textarea name="street" id="street" placeholder="Street" maxlength="256" required></textarea>
         <br><br>
         
         <label><b>PIN Code</b></label>
-        <input type="number" name="pin" id="pin" placeholder="793001" maxlength="6">    
+        <input type="number" name="pin" id="pin" placeholder="793001" pattern="[0-9]{6}" maxlength="6" required>    
         <br><br>  
 
         <label>
             <b>Account Type</b>    
         </label>
         <br>
-        <input type="radio" name="A_type" id="Buyer" value="Buyer">
+        <input type="radio" name="A_type" id="Buyer" value="Buyer" required>
         <label for="Buyer">Buyer</label> 
-        <input type="radio" name="A_type" id="Seller" value="Seller">
+        <input type="radio" name="A_type" id="Seller" value="Seller" required>
         <label for="Seller">Buyer + Seller</label>    
         <br><br>
 
