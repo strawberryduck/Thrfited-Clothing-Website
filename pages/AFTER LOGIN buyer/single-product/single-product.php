@@ -42,17 +42,15 @@ $p_id=$_GET["p_id"];
 
         <section id="proddetails" class="section-p1">
             <div class="single-prod-img">
-                <img src="../../../images/jacket1.jpg" width="100%" id="MainImg" alt="">
-
+            <img source src="<?php echo '../../after login/add item/uploads/' .$image_1;?>" id="MainImg" alt="" height="500" width="550"> 
                 <div class="small-img-group">
                     <div class="small-img-col">
-                        <img src="../../../images/jacket2.jpg" width="100%" class="small-img" alt="">
+                    <img source src="<?php echo '../../after login/add item/uploads/' .$image_2;?>" class="small-img" alt="" height="300" width="350">
                     </div>
 
                     <div class="small-img-col">
-                        <img src="../../../images/jacket1.jpg" width="100%" class="small-img" alt="">
+                    <img source src="<?php echo '../../after login/add item/uploads/' .$image_1;?>" class="small-img" alt="" height="300" width="350">
                     </div>
-
                 </div>
             </div>
 

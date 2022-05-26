@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 25, 2022 at 09:41 PM
+-- Generation Time: May 26, 2022 at 08:53 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -82,7 +82,13 @@ CREATE TABLE `items` (
 --
 
 INSERT INTO `items` (`p_id`, `u_id`, `PName`, `Brand`, `Fabric`, `Quality`, `Size`, `Price`, `PCondition`, `Category`, `image_1`, `image_2`, `date_time`) VALUES
-(9, 10, 'Shirt', 'Brandless', 'Cotton', 'Smooth', 'Large', 230, 'Brand New', 'Male Shirt', 'dior.png', 'adidas.jpg', '2022-05-25 21:25:44');
+(9, 10, 'Shirt', 'Brandless', 'Cotton', 'Smooth', 'Large', 230, 'Brand New', 'Male Shirt', 'dior.png', 'adidas.jpg', '2022-05-25 21:25:44'),
+(10, 10, 'Hawaiian Shirt', 'Luau', 'Cotton', 'Smooth', 'Extra Large', 3200, 'Brand New', 'Male Shirt', 'hawaii.jpg', 'logo.jpg', '2022-05-26 10:30:15'),
+(11, 12, 'Jeans', 'YSL', 'Denim', 'Very High Quality', 'Medium', 1200, 'Moderately Used', 'Male Trousers', 'jeans1.jpg', 'jeans2.jpg', '2022-05-26 20:19:30'),
+(12, 12, 'Messi Jersey', 'Nike', 'Cotton', 'Very Nice', 'Small', 2000, 'New', 'Male Shirt', 'messi1.jpg', 'messi2.jpg', '2022-05-26 20:23:01'),
+(13, 12, 'Long Skirt', 'Skirty', 'Jute', 'OK', 'Medium', 800, 'Used just a bit', 'Female Skirt', 'skirt1.jpg', 'skirt2.jpg', '2022-05-26 20:25:05'),
+(14, 12, 'Anime Tee', 'Toei', 'Cotton', 'Very nice quality', 'Extra Small', 649, 'New', 'Female Jacket', 'kakashi.jpg', 'kakashi1.jpg', '2022-05-26 20:35:02'),
+(15, 14, 'Ronaldo Jersey', 'Adidas', 'Polyester', 'Very Good', 'Large', 1999, 'Kinda Old', 'Female Shirt', 'ronaldoadidas11.jpg', 'ronaldoadidas.jpg', '2022-05-26 20:41:59');
 
 -- --------------------------------------------------------
 
@@ -152,7 +158,9 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`u_id`, `FName`, `LName`, `password`, `email`, `gender`, `C_no`, `street`, `pin`, `u_type`, `date_time`) VALUES
 (10, 'Zeph', 'Khongjee', '$2y$10$150KiYuHNrAOx.T7ZpcZIu9JZzzQRb2a3DLNAbwSqd0AZuQr0DYL6', 'zeph@gmail.com', 'Male', 12345678, 'Hrer', 123456, 'Seller', '2022-05-22 21:34:28'),
 (11, 'Mardon', 'Synrem', '$2y$10$vPJhF3Yk8L.0oXgkcCpzdeDWxzzFhj93frAYbGF1GKgSuAtZ7FQb.', 'mardon@gmail.com', 'Other', 1234509876, 'There', 123654, 'Buyer', '2022-05-22 21:35:05'),
-(12, 'Zach', 'Khongjee', '$2y$10$CsSL4EfIlQYZbf2U3z6QbOv0P9axKhVS4MykKtGnMtr/TLChKiAYO', 'zach@gmail.com', 'Male', 2147483647, 'IING', 793002, 'Seller', '2022-05-25 17:23:21');
+(12, 'Zach', 'Khongjee', '$2y$10$CsSL4EfIlQYZbf2U3z6QbOv0P9axKhVS4MykKtGnMtr/TLChKiAYO', 'zach@gmail.com', 'Male', 2147483647, 'IING', 793002, 'Seller', '2022-05-25 17:23:21'),
+(14, 'Ryan', 'Marak', '$2y$10$zCIRTlcETIhfIQ4OEX9qJO0BGfOUy7ZjQg2bMepqWJtzsG8M4eO0m', 'ryanmarak@yahoo.com', 'Other', 1236547809, 'Lumjingshai', 793002, 'Seller', '2022-05-26 20:39:49'),
+(16, 'Phiba', 'Dybala', '$2y$10$sFdokIyzmFx8GDh7UtltuulmjeUXZxCP0jNKs2Iryk51GXIhmtvrW', 'phibadybala@gmail.com', 'Female', 987653421, 'Polo, near Hotel.', 793002, 'Buyer', '2022-05-26 20:51:34');
 
 --
 -- Indexes for dumped tables
@@ -222,7 +230,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `items`
 --
 ALTER TABLE `items`
-  MODIFY `p_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `p_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `orders`
@@ -246,7 +254,7 @@ ALTER TABLE `store`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `u_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `u_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- Constraints for dumped tables

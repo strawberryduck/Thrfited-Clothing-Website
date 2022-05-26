@@ -39,23 +39,29 @@
 }
 
 #proddetails .single-prod-img {
-    width: 24%;
-    margin-right: 50px;
+    /* width: 100px;
+    height: 120px; */
+    margin-right: 650px;
+    margin-bottom: 200px;
 }
 
 .small-img-group {
     display: flex;
-    justify-content: space-between;
+    /* width: 100px;
+    height: 120px; */
+    /* justify-content: space-between; */
 }
 
 .small-img-col {
-    flex-basis: 30%;
+    margin-right: 30px;
+    flex-basis: 10%;
     cursor: pointer;
 }
 
 #proddetails .single-prod-details {
     width: 50%;
     padding-top: 30px;
+    /* margin-left: 200px; */
 }
 
 #proddetails .single-prod-details h3 {

@@ -19,19 +19,7 @@
             $pin=($_POST['pin']);
             $u_type=($_POST['A_type']);
             $create_datetime = date("Y-m-d H:i:s");
-            // if (!preg_match("/^[a-zA-Z ]+$/",$first_name)) {
-            //     $name_error = "Name must contain only alphabets and space";
-            // }
-            // if (!preg_match("/^[a-zA-Z ]+$/",$last_name)) {
-            //     $name_error = "Name must contain only alphabets and space";
-            // }
-            // if(!filter_var($email,FILTER_VALIDATE_EMAIL)) {
-            //     $email_error = "Please Enter Valid Email ID";
-            // }
-            // if(strlen($password) < 6) {
-            //     $password_error = "Password must be minimum of 6 characters";
-            // }
-            
+
             $query="INSERT into `users` (FName, LName , password, email, gender, C_no, street, pin, u_type, date_time)
                 VALUES ('$first_name', '$last_name', '$hash', '$email', '$gender', '$C_no', '$street', '$pin', '$u_type', '$create_datetime')";
             $result = mysqli_query($conn, $query);
