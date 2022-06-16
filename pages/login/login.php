@@ -55,12 +55,12 @@
         </b>    
         </label>
         <br>    
-        <input type="text" name="email" id="email" placeholder="Email">    
+        <input type="email" name="email" id="email" placeholder="Email" required autofocus>    
         <br><br>    
         <label><b>Password     
         </b>    
         </label>    
-        <input type="Password" name="password" id="password" placeholder="Password">    
+        <input type="Password" name="password" id="password" placeholder="Password" required>    
         <br><br> 
         <div id="signinbuttondiv">   
             <input type="submit" name="log" id="log" value="Sign in">       

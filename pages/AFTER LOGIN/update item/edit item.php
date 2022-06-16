@@ -2,6 +2,11 @@
 <?php
 //include auth_session.php file on all user panel pages
 include("../../../php/session_start.php");
+include("../../../php/database_connect.php");
+$p_id = $_GET['p_id'];
+$query="SELECT * FROM `items` WHERE p_id='$p_id'";
+$result = mysqli_query($conn, $query) or die(mysqli_error($conn));
+$row = mysqli_fetch_assoc($result);
 ?>    
 <html>    
 <head>    
@@ -73,28 +78,28 @@ function preview_image1(event)
             <b>Name of Product</b>    
         </label>
         <br>   
-        <input type="text" name="Name" id="Name" placeholder="Name" maxlength="100" required autofocus>    
+        <input type="text" name="Name" id="Name" placeholder="Name" maxlength="100" value="<?php echo $row['PName'] ?>" required autofocus>    
         <br><br>
 
         <label>
             <b>Brand</b>    
         </label>
         <br>
-        <input type="text" name="Brand" id="Brand" placeholder="Brand" maxlength="20" required>    
+        <input type="text" name="Brand" id="Brand" placeholder="Brand" maxlength="20" value="<?php echo $row['Brand'] ?>" required>    
         <br><br>  
 
         <label>
             <b>Fabric</b>    
         </label>
         <br>  
-        <input type="text" name="Fabric" id="Fabric" placeholder="Fabric" maxlength="20" required>    
+        <input type="text" name="Fabric" id="Fabric" placeholder="Fabric" maxlength="20" value="<?php echo $row['Fabric'] ?>" required>    
         <br><br> 
 
         <label>
             <b>Quality</b>    
         </label> 
         <br>
-        <input type="text" name="Quality" id="Quality" placeholder="Quality" maxlength="32" required>     
+        <input type="text" name="Quality" id="Quality" placeholder="Quality" maxlength="32" value="<?php echo $row['Quality'] ?>" required>     
         <br><br>
 
         <label>
@@ -121,11 +126,11 @@ function preview_image1(event)
             <b>Price</b>    
         </label>
         <br>
-        <input type="number" name="Price" id="Price" placeholder="1010" maxlength="8" required>    
+        <input type="number" name="Price" id="Price" placeholder="1010" maxlength="8" value="<?php echo $row['Price'] ?>" required>    
         <br><br><br>    
 
         <label><b>Condition</b></label>
-        <input type="text" name="PCondition" id="Condition" placeholder="Condition" maxlength="100" required>    
+        <input type="text" name="PCondition" id="Condition" placeholder="Condition" maxlength="100" value="<?php echo $row['PCondition'] ?>" required>    
         <br><br> 
 
         <label>

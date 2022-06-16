@@ -68,7 +68,7 @@ $p_id=$_GET["p_id"];
                 <h3>Condition:</h3><p><?php echo $PCondition ?></p>
                 <br>
                 <br>
-                <button>Add To Cart</button>
+                <?php echo " <a href='../cart/addcart.php?p_id=$p_id'><button>Add To Cart</button></a>" ?>
             </div>
         </section>
         

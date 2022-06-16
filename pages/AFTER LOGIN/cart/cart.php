@@ -35,12 +35,27 @@ include("../../../php/session_start.php");
                         <td>Price</td>
                     </tr>
                 </thead>
-                <tbody>
-                    <td><a href="#"><button>X</button></a></td>
-                    <td><img src="../../../images/jacket1.jpg" alt=""></td>
-                    <td>NAME HERE</td>
-                    <td>PRICE HERE</td>
-                </tbody>
+                <?php
+                include("../../../php/database_connect.php");
+                $u_id = $_SESSION['u_id'];
+                $total = 0;
+                $query3 = "SELECT * from `cart` where u_id= $u_id";
+                $result3 = mysqli_query($conn, $query3); 
+                
+                while($row = mysqli_fetch_assoc($result3)){
+                    $query1= "SELECT PName, Price, image_1 FROM `items` WHERE p_id = $row[p_id]";
+                    $result = mysqli_query($conn,$query1);                 
+                    $items = mysqli_fetch_all($result, MYSQLI_ASSOC);
+                    foreach($items as $item){ ?>
+                        <tbody>
+                        <td><a href="#"><button>X</button></a></td>
+                        <td><img source src="<?php echo '../../after login/add item/uploads/' .$item['image_1'];?>"></td>
+                        <td><?php echo  $item['PName'] ?></td>
+                        <td><?php echo $item['Price'] ?></td>
+                        <?php $total = $total + $item['Price']  ?>
+                        </tbody>
+               <?php } }?>
+                
             </table>
         </section>
         <br>
@@ -53,7 +68,7 @@ include("../../../php/session_start.php");
                         <td>TOTAL</td>
                     </tr>
                     <tr>
-                        <td>PRICE</td>
+                        <td>RS.<?php echo $total ?></td>
                     </tr>
                 </table>
 

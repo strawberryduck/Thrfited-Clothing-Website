@@ -1,3 +1,7 @@
+<?php
+$search=($_POST['search']);
+?>
+
 <!DOCTYPE html>
 <?php
 //include auth_session.php file on all user panel pages
@@ -33,11 +37,13 @@ include("../../../php/session_start.php");
                 <input type="text" name="search" style="width: 500px; padding: 2px; border: 1px solid black"></input><input type ="submit" value="SEARCH">
             </form>
             <div class="prod-container">
-                <?php 
+            <?php 
+                if ($_SERVER['REQUEST_METHOD']=='POST') {
                     include("../../../php/database_connect.php");
-                    // include("../../php/login.php");
-                    $query = " select p_id, PName, Brand, Price, image_1 from items ";
+                    // $query = " select p_id, PName, Brand, Price, image_1 from items ";
+                    $query = "SELECT  p_id, PName, Brand, Price, image_1 FROM `items` WHERE (`PName` LIKE '%$search%') OR (`Brand` LIKE '%$search%') OR (`Fabric` LIKE '%$search%')";
                     $result = mysqli_query($conn,$query);
+                     
                     $items = mysqli_fetch_all($result, MYSQLI_ASSOC);
                     foreach($items as $item){
                 ?>
@@ -53,7 +59,7 @@ include("../../../php/session_start.php");
                         ?>
                         <br>
                 </div>
-                  <?php } ?>
+                  <?php } }?>
             </div>
         </section>
     </body>    

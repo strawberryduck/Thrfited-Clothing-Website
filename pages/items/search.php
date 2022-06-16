@@ -1,3 +1,7 @@
+<?php
+$search=($_POST['search']);
+?>
+
 <!DOCTYPE html>
 <html>
     <title>Products</title>
@@ -26,13 +30,14 @@
             <h2>PRODUCTS</h2>
             <p>Summer Collection is all the rage right now!</p>
             <form action="search.php" method="POST">
-                <input type="text" name="search" required style="width: 500px; padding: 2px; border: 1px solid black"></input><input type ="submit" value="SEARCH">
+                <input type="text" name="search" style="width: 500px; padding: 2px; border: 1px solid black"></input><input type ="submit" value="SEARCH">
             </form>
             <div class="prod-container">
                 <?php 
+                if ($_SERVER['REQUEST_METHOD']=='POST') {
                     include("../../php/database_connect.php");
-                    // include("../../php/login.php");
-                    $query = " select p_id, PName, Brand, Price, image_1 from items ";
+                    // $query = " select p_id, PName, Brand, Price, image_1 from items ";
+                    $query = "SELECT  p_id, PName, Brand, Price, image_1 FROM `items` WHERE (`PName` LIKE '%$search%') OR (`Brand` LIKE '%$search%') OR (`Fabric` LIKE '%$search%')";
                     $result = mysqli_query($conn,$query);
                      
                     $items = mysqli_fetch_all($result, MYSQLI_ASSOC);
@@ -50,7 +55,7 @@
                         ?>
                         <br>
                 </div>
-                  <?php } ?>
+                  <?php } } ?>
             </div>
         </section>
     </body>    

@@ -28,6 +28,9 @@ include("../../../php/session_start.php");
         <section id="products" class="section-p1">
             <h2>PRODUCTS</h2>
             <p>Summer Collection is all the rage right now!</p>
+            <form action="search.php" method="post">
+                <input type="text" name="search" style="width: 500px; padding: 2px; border: 1px solid black"></input><input type ="submit" value="SEARCH">
+            </form>
             <div class="prod-container">
                 <?php 
                     include("../../../php/database_connect.php");
