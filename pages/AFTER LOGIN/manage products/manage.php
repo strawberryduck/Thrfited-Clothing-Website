@@ -55,6 +55,10 @@ include("../../../php/session_start.php");
                         ?>
                         <br>
                         <?php 
+                            echo "<a href='../remove item/remove item.php?p_id=$item[p_id]'>Remove Item</a>";
+                        ?>
+                        <br>
+                        <?php 
                             echo "";
                         ?>
                 </div>

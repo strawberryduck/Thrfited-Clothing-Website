@@ -36,6 +36,11 @@ include("../../../php/session_start.php");
             <form action="search.php" method="post">
                 <input type="text" name="search" style="width: 500px; padding: 2px; border: 1px solid black"></input><input type ="submit" value="SEARCH">
             </form>
+            FILTERS <br><br>
+            BY BRAND <br>
+            <?php echo "<a href='#'><button>NIKE</button></a><a href='#'><button>TOEI</button></a>"?> <br>
+            BY PRICE <br>
+            <a href="#"><button>LOW TO HIGH</button></a><a href="#"><button>HIGH TO LOW</button></a>
             <div class="prod-container">
             <?php 
                 if ($_SERVER['REQUEST_METHOD']=='POST') {

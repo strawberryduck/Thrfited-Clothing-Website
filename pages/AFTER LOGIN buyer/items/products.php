@@ -31,6 +31,16 @@ include("../../../php/session_start.php");
             <form action="search.php" method="post">
                 <input type="text" name="search" style="width: 500px; padding: 2px; border: 1px solid black"></input><input type ="submit" value="SEARCH">
             </form>
+            <br>
+            FILTERS <br><br>
+            BY BRAND <br>
+            <?php
+            $nike= 'Nike';
+            $toei= 'Toei';
+            ?>
+            <?php echo "<a href='sort.php?Brand=$nike'><button>NIKE</button></a><a href='sort.php?Brand=$toei'><button>TOEI</button></a>"?> <br>
+            BY PRICE <br>
+            <a href="low.php"><button>LOW TO HIGH</button></a><a href="high.php"><button>HIGH TO LOW</button></a>
             <div class="prod-container">
                 <?php 
                     include("../../../php/database_connect.php");

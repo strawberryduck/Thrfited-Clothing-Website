@@ -4,7 +4,7 @@
 include("../../../php/session_start.php");
 include("../../../php/database_connect.php");
 $p_id = $_GET['p_id'];
-$query="SELECT * FROM `items` WHERE p_id='$p_id'";
+$query="SELECT PName, Brand, Fabric, Quality, Price, PCondition FROM `items` WHERE p_id='$p_id'";
 $result = mysqli_query($conn, $query) or die(mysqli_error($conn));
 $row = mysqli_fetch_assoc($result);
 ?>    
@@ -50,11 +50,23 @@ function preview_image1(event)
             $Price=($_POST['Price']);
             $PCondition=($_POST['PCondition']);
             $Category=($_POST['Category']);
-            $image1=($_POST['image1']);
-            $image2=($_POST['image2']);
-            $create_datetime = date("Y-m-d H:i:s");
             
-            $query="UPDATE `items` SET u_id = '$u_id', PName = '$Pname', Brand = '$Brand', Fabric = '$Fabric', Quality = '$Quality', Size = '$Size', Price = '$Price', PCondition = '$PCondition', Category = '$Category', image_1 = '$image1', image_2 = '$image2', date_time = '$create_datetime'
+            $file_name=$_FILES['image1'];
+            $file_name=$_FILES['image1']['name'];
+            $fie_type=$_FILES['image1']['type'];
+            $temp_name=$_FILES['image1']['tmp_name'];$file_size=$_FILES['image1']['size'];
+            $file_destination= "../add item/uploads/".$file_name;
+
+            $file_name1=$_FILES['image2'];
+            $file_name1=$_FILES['image2']['name'];
+            $file_type1=$_FILES['image2']['type'];
+            $temp_name1=$_FILES['image2']['tmp_name'];$file_size=$_FILES['image2']['size'];
+            $file_destination1= "../add item/uploads/".$file_name1;
+
+            $create_datetime = date("Y-m-d H:i:s");
+
+            if(move_uploaded_file($temp_name,$file_destination) && move_uploaded_file($temp_name1,$file_destination1)){
+            $query="UPDATE `items` SET u_id = '$u_id', PName = '$Pname', Brand = '$Brand', Fabric = '$Fabric', Quality = '$Quality', Size = '$Size', Price = '$Price', PCondition = '$PCondition', Category = '$Category', image_1 = '$file_name', image_2 = '$file_name1', date_time = '$create_datetime'
                    WHERE p_id = '$p_id'";
             $result = mysqli_query($conn, $query);
             if ($result) {
@@ -70,10 +82,11 @@ function preview_image1(event)
                   </div>";
                 }
             }  
+        }
         ?>    
     <h2>Edit Item</h2><br>    
     <div class="EditItem">    
-    <form id="Edit Item" method="post">    
+    <form id="Edit Item" method="post" enctype="multipart/form-data">    
         <label>
             <b>Name of Product</b>    
         </label>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 16, 2022 at 09:20 PM
+-- Generation Time: Jun 16, 2022 at 11:01 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -40,7 +40,6 @@ INSERT INTO `cart` (`u_id`, `p_id`) VALUES
 (10, 12),
 (10, 13),
 (10, 15),
-(11, 9),
 (11, 14);
 
 -- --------------------------------------------------------
@@ -93,8 +92,7 @@ CREATE TABLE `items` (
 --
 
 INSERT INTO `items` (`p_id`, `u_id`, `PName`, `Brand`, `Fabric`, `Quality`, `Size`, `Price`, `PCondition`, `Category`, `image_1`, `image_2`, `date_time`) VALUES
-(9, 10, 'Shirt', 'Brandless', 'Cotton', 'Smooth', 'Large', 230, 'Brand New', 'Male Shirt', 'dior.png', 'adidas.jpg', '2022-05-25 21:25:44'),
-(10, 10, 'Hawaiian Shirt', 'Luau', 'Cotton', 'Smooth', 'Extra Large', 3200, 'Brand New', 'Male Shirt', 'hawaii.jpg', 'logo.jpg', '2022-05-26 10:30:15'),
+(10, 10, 'Hawaiian Shirt', 'Luwow', 'Cotton', 'Smooth', 'Extra Large', 3200, 'Brand New', 'Male Shirt', 'hawaii.jpg', 'guts.jpg', '2022-06-16 22:26:09'),
 (11, 12, 'Jeans', 'YSL', 'Denim', 'Very High Quality', 'Medium', 1200, 'Moderately Used', 'Male Trousers', 'jeans1.jpg', 'jeans2.jpg', '2022-05-26 20:19:30'),
 (12, 12, 'Messi Jersey', 'Nike', 'Cotton', 'Very Nice', 'Small', 2000, 'New', 'Male Shirt', 'messi1.jpg', 'messi2.jpg', '2022-05-26 20:23:01'),
 (13, 12, 'Long Skirt', 'Skirty', 'Jute', 'OK', 'Medium', 800, 'Used just a bit', 'Female Skirt', 'skirt1.jpg', 'skirt2.jpg', '2022-05-26 20:25:05'),
@@ -183,7 +181,7 @@ INSERT INTO `users` (`u_id`, `FName`, `LName`, `password`, `email`, `gender`, `C
 --
 ALTER TABLE `cart`
   ADD KEY `u_id` (`u_id`,`p_id`),
-  ADD KEY `p_id` (`p_id`);
+  ADD KEY `cart_ibfk_1` (`p_id`);
 
 --
 -- Indexes for table `delivery`
@@ -276,7 +274,7 @@ ALTER TABLE `users`
 -- Constraints for table `cart`
 --
 ALTER TABLE `cart`
-  ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`p_id`) REFERENCES `items` (`p_id`),
+  ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`p_id`) REFERENCES `items` (`p_id`) ON DELETE CASCADE,
   ADD CONSTRAINT `cart_ibfk_2` FOREIGN KEY (`u_id`) REFERENCES `users` (`u_id`);
 
 --
